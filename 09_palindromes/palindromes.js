@@ -1,22 +1,7 @@
-function isCharacterALetter(char) {
-    return char.toLowerCase() != char.toUpperCase()
-}
-
 const palindromes = function (string) {
-    string = string.toLowerCase();
-    const charArray = string.split("");
-    let arrLength = charArray.length;
+    const processedString = string.toLowerCase().replace(/[^a-z]/g, "");
 
-    for (let i = 0; i < arrLength; i++) {
-        if (!isCharacterALetter(charArray[i])) continue;
-        let j = arrLength - i - 1;
-            console.log(charArray[i]);
-            console.log(charArray[j]);
-            if (!isCharacterALetter(charArray[j])) continue;
-            if (charArray[i] != charArray[j]) return false;
-    }
-
-    return true;
+    return (processedString === processedString.split("").reverse().join(""));
 };
 
 palindromes('racecar');
